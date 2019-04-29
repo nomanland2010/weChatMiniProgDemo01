@@ -1,0 +1,6 @@
+<!--pages/footer/footer.wxml-->
+<view> footer </view>
+
+<template name="item2">
+<text>{{text}}</text>
+</template>

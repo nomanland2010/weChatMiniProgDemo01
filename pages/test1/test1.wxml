@@ -1,0 +1,69 @@
+<!--pages/test/test.wxml-->
+<view class="container log-list">
+  <text class="log-item">{{text}}</text>
+</view>
+
+<view class="btn-area">
+  <view class="body-view">
+    <text>我爱北京\t我爱中国</text>
+    <text>我爱北京\n我爱中国</text>
+  </view>
+</view>
+
+<progress percent="20" show-info />
+<progress percent="40" stroke-width="12" />
+<progress percent="60" color="pink" />
+<progress pecent="80" active />
+
+<checkbox-group bindchange="checkboxChange">
+  <checkbox value="USA" />美国
+  <checkbox value="CHN" checked="true" />中国
+  <checkbox value="BRA" />巴西
+  <checkbox value="JPN" />日本
+  <checkbox value="ENG" disabled/>英国
+</checkbox-group>
+
+<radio-group class="radio-group" bindchange="radioChange">
+  <radio value="USA" />美国
+  <radio value="CHN" checked/>中国
+  <radio value="BRA" disabled/>巴西
+  <radio value="JPN" />日本
+  <radio value="ENG" />英国
+</radio-group>
+
+<view class="section">
+  <input placeholder="这是一个可以自动聚焦的input" auto-focus/>
+</view>
+<view class="section">
+  <input maxlength="10" placeholder="最大输入长度10" />
+</view>
+<view class="section">
+  <input password type="number" />
+</view>
+<view class="section">
+  <input password type="text" />
+</view>
+<view class="section">
+  <input type="digit" placeholder="带小数点的数字键盘" />
+</view>
+<view class="section">
+  <input type="idcard" placeholder="身份证输入键盘" />
+</view>
+<view class="section">
+  <input placeholder-style="color:red" placeholder="占位符字体是红色的" />
+</view>
+
+
+<view class="section">
+  <textarea bindblur="bindTextAreaBlur" auto-height placeholder="自动变高" />
+</view>
+<view class="section">
+  <textarea placeholder="placeholder颜色是红色的" placeholder-style="color:red;" />
+</view>
+
+<!-- 导航 -->
+<view class="btn-area">
+  <navigator url="../navigator/navigator?title=navigator" open-type="navigate" hover-class="navigator-hover">wx.navigateTo保留当前页跳转</navigator>
+  <navigator url="../redirect/redirect?title=redirect" open-type="redirect" hover-class="other-navigator-hover">wx.redirectTo关闭当前页跳转</navigator>
+  <navigator url="../redirect/redirect" open-type="switchTab" hover-class="other-navigator-hover">wx.switchTab跳转到tabBar页面</navigator>
+</view>

@@ -1,0 +1,24 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode='cover'></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+
+  <!-- import 别处的模板 -->
+  <import src="../item/item.wxml" />
+  <template is="item" data="{{text: '名为item的模板'}}" />
+
+  <!-- include -->
+  <include src="../header/header.wxml" />
+  <view> body </view>
+  <include src="../footer/footer.wxml" />
+  <template is="item" data="{{text: '名为item2的模板'}}" />
+
+</view>

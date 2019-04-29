@@ -1,0 +1,10 @@
+{
+  "usingComponents": {},
+ 
+  "navigationBarBackgroundColor": "#FF6600",
+  "navigationBarTextStyle": "black",
+  "navigationBarTitleText": "主页单独配置",
+  "backgroundColor": "#eeeeee",
+  "backgroundTextStyle": "light"
+ 
+}
