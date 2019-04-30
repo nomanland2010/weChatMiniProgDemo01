@@ -22,3 +22,87 @@
   <template is="item" data="{{text: '名为item2的模板'}}" />
 
 </view>
+
+<view wx:for="{{array}}" wx:key="uuid">{{item}}</view>
+
+<view wx:if="{{view == 'WEBVIEW'}}">WEBVIEW</view>
+<view wx:elif="{{view == 'APP'}}">APP</view>
+<view wx:else="{{view == 'MINA'}}">MINA</view>
+
+<view id="tapTest" data-hi="WeChat" bindtap="tapName">Click me!</view>
+
+
+<wxs module="wxs" src="./test.wxs"></wxs>
+<view id="tapTest" data-hi="WeChat" bindtap="{{wxs.tapName}}">Click me!</view>
+
+<view id="outer" bindtap="handleTap1">
+  <view>冒泡测试1</view>
+  outer view
+  <view id="middle" catchtap="handleTap2">
+    middle view
+    <view id="inner" bindtap="handleTap3">
+      inner view
+    </view>
+  </view>
+</view>
+
+<view
+  id="outer"
+  bind:touchstart="handleTap1"
+  capture-bind:touchstart="handleTap2"
+>
+  <view>冒泡测试2</view>
+  outer view
+  <view
+    id="inner"
+    bind:touchstart="handleTap3"
+    capture-bind:touchstart="handleTap4"
+  >
+    inner view
+  </view>
+</view>
+
+
+<view
+  id="outer"
+  bind:touchstart="handleTap1"
+  capture-catch:touchstart="handleTap2"
+>
+  <view>冒泡测试3</view>
+  outer view
+  <view
+    id="inner"
+    bind:touchstart="handleTap3"
+    capture-bind:touchstart="handleTap4"
+  >
+    inner view
+  </view>
+</view>
+
+
+<view data-a-b="10" data-alphaBeta="20" data-C-D="30" data-company-name="NTT" bindtap="bindViewTap2">
+  <view>DataSet Test</view>
+</view>
+
+<!-- 地图控件 -->
+<text>默认地图</text>
+<map/>
+<view>上海黄浦区地图</view>
+<map longitude="{{shanghaiLongitude}}" latitude="{{shanghaiLatitude}}">
+</map>
+<view>用户在地图上点击测试</view>
+<map longitude="{{shanghaiLongitude}}" latitude="{{shanghaiLatitude}}" bindtap="mapTap"
+data-shanghai-longitude='{{shanghaiLongitude}}' data-shanghai-latitude='{{shanghaiLatitude}}'
+enable-3D="true" show-compass="true" enable-overlooking="true" enable-rotate="true" />
+
+<!-- 获取用户地理位置 -->
+<view bindtap="getUsereCurrentLocationViewTapped">获取用户当前位置</view>
+<view wx:if="{{userCurrentLongitude == -2 && userCurrentLatitude == -2}}" />
+<view wx:elif="{{userCurrentLongitude >= 0 && userCurrentLatitude >= 0}}">
+  <view>用户当前位置经度：{{userCurrentLongitude}}</view>
+  <view>用户当前位置纬度：{{userCurrentLatitude}}</view>
+</view>
+<view wx:elif="{{userCurrentLongitude == -1 && userCurrentLatitude == -1}}">无法获取用户当前位置的经纬度</view>
+
+<!-- 调用微信扫一扫 -->
+<view bindtap="scanTapped">扫一扫</view>
